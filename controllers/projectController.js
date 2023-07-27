@@ -8,11 +8,15 @@ const Task = require('../model/TaskDB');
 exports.getUserProjects = async(req,res)=>{
     try {
         //
+        console.log(req);
+        console.log(req.user._id);
         console.log("inside getUserProjects");
         // console.log(req.params.userId);
         const DB = process.env.DATABASE.replace('<password>',process.env.DATABASE_PASSWORD);
         const connect = await mongoose.connect(DB);
-        const projects = await User.findById(req.params.userId).populate("projects");
+        const uId = req.user.id;
+        console.log(req.user.id);
+        const projects = await User.findById(uId).populate("projects");
 
         connect.disconnect();
         // console.log(projects)
@@ -28,7 +32,8 @@ exports.createProject = async(req,res)=>{
         console.log("inside createProject");
         const DB = process.env.DATABASE.replace('<password>',process.env.DATABASE_PASSWORD);
         const connect = await mongoose.connect(DB);
-        console.log(req.params.userId);
+        const uId = req.user.id;
+        console.log(uId);
         const newProject = await Project.create({
             name: req.body.name,
             owner: req.params.userId,
@@ -74,7 +79,8 @@ exports.changeProject = async(req,res)=>{
         //     connect.disconnect();
         //     res.status(400).send('Project not found !!')
         // }
-        if(project.owner != req.params.userId){
+        const uId = req.user.id;
+        if(project.owner != uId){
             connect.disconnect();
             res.status(403).send("you dont have access to this whole Project !!");
         }
@@ -105,7 +111,8 @@ exports.deleteProject = async(req,res)=>{
         //     connect.disconnect();
         //     res.status(400).send('Project not found !!')
         // }
-        if(project.owner != req.params.userId){
+        const uId = req.user.id;
+        if(project.owner != uId){
             connect.disconnect();
             res.status(403).send("you dont have access to this whole Project !!");
         }

@@ -1,0 +1,23 @@
+.task-card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .task-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .task-description {
+    font-size: 14px;
+  }
+  
+  .task-deadline,
+  .task-project {
+    font-size: 12px;
+    margin: 5px 0;
+  }

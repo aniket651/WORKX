@@ -14,15 +14,16 @@ exports.createTask = async(req,res)=>{
         const connect = await mongoose.connect(DB);
         const projects = await User.findById(req.params.projectId);
         // if(!projects){
-        //     connect.disconnect();
-        //     res.status(400).send('no such project found !!')
-        // }
-
-        console.log(req.params.userId);
+            //     connect.disconnect();
+            //     res.status(400).send('no such project found !!')
+            // }
+            
+        const uId = req.user.id;
+        console.log(uId);
         let assigned = req.body.assigned_to;
         console.log(assigned);
         if(assigned===undefined){
-            assigned = req.params.userId;
+            assigned = uId;
         }
         console.log(assigned);
         const newTask = await Task.create({
@@ -42,20 +43,56 @@ exports.createTask = async(req,res)=>{
     }
 }
 
-exports.getTasks = async(req,res)=>{
-    try {
-        console.log("inside getTask");
-        // console.log(req.params.userId);
-        const DB = process.env.DATABASE.replace('<password>',process.env.DATABASE_PASSWORD);
-        const connect = await mongoose.connect(DB);
-        const tasks = await User.findById(req.params.userId).populate('tasks');
-        connect.disconnect();
+// exports.getTasks = async(req,res)=>{
+//     try {
+//         console.log("inside getTask");
+//         // console.log(req.params.userId);
+//         const DB = process.env.DATABASE.replace('<password>',process.env.DATABASE_PASSWORD);
+//         const connect = await mongoose.connect(DB);
+//         const uId = req.user.id;
+//         const tasks = await User.findById(uId)?.populate('tasks');
+//         connect.disconnect();
 
-        res.status(200).send(tasks.tasks);
+//         res.status(200).send(tasks.tasks);
+//     } catch (error) {
+//         res.status(500).send(error);
+//     }
+// }
+
+exports.getTasks = async (req, res) => {
+    try {
+      console.log("inside getTask");
+      const DB = process.env.DATABASE.replace('<password>', process.env.DATABASE_PASSWORD);
+  
+      // Establish a database connection
+      const connect = await mongoose.connect(DB);
+  
+      // Assuming req.user.id contains the ID of the user making the request
+      const uId = req.user.id;
+  
+      // Find the user by ID and populate their tasks
+      const user = await User.findById(uId).populate('tasks');
+  
+      // Disconnect from the database
+      await mongoose.disconnect();
+  
+      if (!user) {
+        return res.status(404).json({ message: 'User not found.' });
+      }
+  
+      // Check if user.tasks is not null before sending the response
+      if (!user.tasks) {
+        return res.status(200).json([]); // Return an empty array if user.tasks is null
+      }
+  
+      // Send the tasks as a response
+      res.status(200).json(user.tasks);
     } catch (error) {
-        res.status(500).send(error);
+      // Handle database connection error separately
+      console.error("Database connection error:", error);
+      res.status(500).json({ message: 'Server error.' });
     }
-}
+  };
 
 exports.changeTask = async(req,res)=>{
     try {
@@ -69,7 +106,8 @@ exports.changeTask = async(req,res)=>{
         //     connect.disconnect();
         //     res.status(400).send('parent project not found !!')
         // }
-        if(project.owner != req.params.userId){
+        const uId = req.user.id;
+        if(project.owner != uId){
             connect.disconnect();
             res.status(403).send('Access Not Granted to this Project !!!')
         }
@@ -105,7 +143,8 @@ exports.updateStatus = async(req,res)=>{
         //     connect.disconnect();
         //     res.status(400).send('Task not found !!')
         // }
-        if(task.assigned_to != req.params.userId){
+        const uId = req.user.id;
+        if(task.assigned_to != uId){
             connect.disconnect();
             res.status(403).send("This Task is not assigned to you !!");
         }
@@ -122,6 +161,56 @@ exports.updateStatus = async(req,res)=>{
     }
 }
 
+// exports.updateStatus = async (req, res) => {
+//     try {
+//       console.log("inside updateStatus");
+//       const DB = process.env.DATABASE.replace('<password>', process.env.DATABASE_PASSWORD);
+  
+//       // Establish a database connection
+//       const connect = await mongoose.connect(DB);
+  
+//       // Assuming req.user.id contains the ID of the user making the request
+//       const uId = req.user.id;
+  
+//       // Find the task by ID
+//       let task;
+//       try {
+//         task = await Task.findById(req.params.taskId);
+//       } catch (error) {
+//         // Handle error when the Task.findById operation fails
+//         connect.disconnect();
+//         return res.status(500).json({ message: 'Error finding the task.' });
+//       }
+//   Check if the task is not found
+//       if (!task) {
+//         connect.disconnect();
+//         return res.status(404).json({ message: 'Task not found.' });
+//       }
+  
+//       // 
+//       // Check if the task is not assigned to the user
+//       if (task.assigned_to !== uId) {
+//         connect.disconnect();
+//         return res.status(403).json({ message: 'This Task is not assigned to you.' });
+//       }
+  
+//       // Update the task status
+//       const newTask = await Task.findByIdAndUpdate(req.params.taskId, {
+//         status: req.body.status
+//       }, { new: true });
+  
+//       // Disconnect from the database
+//       await mongoose.disconnect();
+  
+//       // Send the updated task as a response
+//       res.status(200).json(newTask);
+//     } catch (error) {
+//       // Handle database connection error separately
+//       console.error("Database connection error:", error);
+//       res.status(500).json({ message: 'Server error.' });
+//     }
+//   };
+
 exports.deleteTask = async(req,res)=>{
     try {
         console.log("inside deleteTask");
@@ -133,7 +222,8 @@ exports.deleteTask = async(req,res)=>{
         //     connect.disconnect();
         //     res.status(400).send('Project not found !!')
         // }
-        if(project.owner != req.params.userId){
+        const uId = req.user.id;
+        if(project.owner != uId){
             connect.disconnect();
             res.status(403).send("you dont have access to this whole Project !!");
         }

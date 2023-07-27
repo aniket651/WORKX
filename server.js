@@ -2,12 +2,14 @@ const dotenv = require('dotenv');
 dotenv.config({path : './config.env'});
 
 
-
 var app = require("./app");
 var debug = require("debug")("backend:server");
 /**
  * Get port from environment and store in Express.
  */
+
+
+
 const port = process.env.PORT || 3003;
 app.set("port", port);
   // Create HTTP server.
