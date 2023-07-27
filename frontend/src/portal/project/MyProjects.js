@@ -7,13 +7,13 @@ import ProjectCard from './ProjectCard';
 
 
 const MyProjects = (props) => {
-  const [compArray,setCompArray] = useState([]);
+  const [compArray, setCompArray] = useState([]);
   const navigate = useNavigate();
 
-    useEffect(()=>{
-      console.log("fetching data for ProjectList!! ")
-      fetchData();
-      console.log("fetched data for ProjectList!! ")
+  useEffect(() => {
+    console.log("fetching data for ProjectList!! ")
+    fetchData();
+    console.log("fetched data for ProjectList!! ")
   }, [])
 
 
@@ -25,29 +25,38 @@ const MyProjects = (props) => {
   // }, [compArray])
 
 
-  const fetchData = async()=>{
+  const fetchData = async () => {
     try {
 
       const res = await api.get("/projects")
       console.log(res.data);
-      if(res.status === 200){
-          console.log(res.status);
-          setCompArray(res.data);
+      if (res.status === 200) {
+        console.log(res.status);
+        setCompArray(res.data);
       }
-      
+
     } catch (error) {
       console.log(error);
     }
   }
 
+  const handleCreateProject = ()=>{
+    navigate("/createProject");
+  }
+
 
 
   return (
-    <div>
-      {compArray.map((item, index) => (
-        <ProjectCard key={index} name={item.name} aim={item.aim} deadline={item.deadline} />
-      ))}
-    </div>
+    <>
+      <div>
+        <button onClick={handleCreateProject}>Create Project</button>
+      </div>
+      <div>
+        {compArray.map((item, index) => (
+          <ProjectCard key={index} name={item.name} aim={item.aim} deadline={item.deadline} />
+        ))}
+      </div>
+    </>
   )
 }
 

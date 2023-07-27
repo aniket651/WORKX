@@ -35,6 +35,7 @@ import ProtectedRoute from './util/ProtectedRoute';
 import Home from './portal/home/Home';
 import MyProjects from './portal/project/MyProjects';
 import MyTasks from './portal/task/MyTasks';
+import CreateProjectForm from './portal/project/CreateProjectForm';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -59,6 +60,11 @@ root.render(
           <Route path='tasks' element={
             <ProtectedRoute>
               <MyTasks />
+            </ProtectedRoute>
+          } />
+          <Route path='createProject' element={
+            <ProtectedRoute>
+              <CreateProjectForm />
             </ProtectedRoute>
           } />
           

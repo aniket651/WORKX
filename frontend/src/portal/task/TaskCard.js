@@ -21,6 +21,7 @@ const TaskCard = (props) => {
                 const ind = newArray.findIndex((item)=>item.id===res.data.id);
                 newArray[ind].status = res.data.status;
                 props.changeCompArray(newArray);
+                alert("the Status of the Task has changed! Refresh to see the changes");
             }
             
         } catch (error) {
@@ -46,6 +47,7 @@ const TaskCard = (props) => {
                 const ind = newArray.findIndex((item)=>item.id===res.data.id);
                 newArray[ind].status = res.data.status;
                 props.changeCompArray(newArray);
+                alert("the Status of the Task has changed! Refresh to see the changes");
             }
             
         } catch (error) {
@@ -69,6 +71,7 @@ const TaskCard = (props) => {
                 const ind = newArray.findIndex((item)=>item.id===res.data.id);
                 newArray[ind].status = res.data.status;
                 props.changeCompArray(newArray);
+                alert("the Status of the Task has changed! Refresh to see the changes");
             }
             
         } catch (error) {

@@ -36,7 +36,7 @@ exports.createProject = async(req,res)=>{
         console.log(uId);
         const newProject = await Project.create({
             name: req.body.name,
-            owner: req.params.userId,
+            owner: uId,
             aim: req.body.aim,
             deadline: req.body.deadline
         })
