@@ -13,8 +13,8 @@ const ProjectCard = (props) => {
   return (
     <div className='project-card'>
         <div className='project-name'>{props.name}</div>
-        <div className='project-aim'>{props.aim}</div>
-        <div className='project-deadline'>{props.deadline}</div>
+        <div className='project-aim'> <span>Aim: </span> {props.aim}</div>
+        <div className='project-deadline'> <span>Deadline: </span> {props.deadline}</div>
         <button onClick={handleVisitProject}>Visit Project Page</button>
     </div>
   )

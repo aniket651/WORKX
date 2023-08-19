@@ -8,8 +8,9 @@
   
   .project-name {
     font-size: 18px;
-    font-weight: bold;
+    font-weight:500;
     margin: 0;
+    padding-bottom: 10px;
   }
   
   .project-aim {
@@ -17,6 +18,11 @@
   }
   
   .project-deadline{
-    font-size: 12px;
+    font-size: 14px;
     margin: 5px 0;
+  }
+
+  span{
+    font-weight: 500;
+
   }

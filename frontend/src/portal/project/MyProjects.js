@@ -53,7 +53,7 @@ const MyProjects = (props) => {
   return (
     <div className='myprojects'>
       <div className='project-bar'>
-        <h1>My Projects</h1>
+        <span className='page-heading'>My Projects</span>
         <button onClick={handleCreateProject}>Create Project</button> 
       </div>
       {

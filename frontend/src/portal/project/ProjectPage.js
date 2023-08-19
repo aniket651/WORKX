@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react';
 import api from '../../api';
 import ReactLoading from "react-loading";
 import SuperTaskCard from './SuperTaskCard';
+import "./ProjectPage.css"
+
 
 const ProjectPage = (props) => {
   const { projectId } = useParams();
@@ -79,23 +81,23 @@ const ProjectPage = (props) => {
     loading === true ? (<ReactLoading type="bars" color="#0000FF"
       height={100} width={50} />) : (
 
-      <>
-        <div>ProjectPage</div>
-        <div>project name: {projectDetails.name}</div>
-        <div>project aim: {projectDetails.aim}</div>
-        <div>deadline: {projectDetails.deadline}</div>
-        {/* <div>{projectDetails.name}</div> */}
-        <button className='EditProjectButton' onClick={handleEditProject}>Edit Project</button>
-        <button className='DeleteProjectButton' onClick={handleDeleteProject}>Delete Project</button>
+      <div className='project-page'>
+        {/* <div>ProjectPage</div> */}
+        <div className='project-name-div'><span className='project-name'>{projectDetails.name}</span></div>
+        <div className='project-aim-div'>{projectDetails.aim}</div>
+        {/* <div>deadline: {projectDetails.deadline}</div> */}
+        <div className='button-div'>
+          <button className='createTaskButton' onClick={handleCreateTask}>Create New Task</button>
+          <button className='EditProjectButton' onClick={handleEditProject}>Edit Project</button>
+          <button className='DeleteProjectButton' onClick={handleDeleteProject}>Delete Project</button>
+        </div>
 
-        <button className='createTaskButton' onClick={handleCreateTask}>Create New Task</button>
-
-        <div>
+        <div className='task-grid'>
           {taskList.map((item, index) => (
             <SuperTaskCard key={index} projectId={projectId} task={item} />
           ))}
         </div>
-      </>
+      </div>
     )
   )
 }

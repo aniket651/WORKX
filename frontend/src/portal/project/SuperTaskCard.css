@@ -1,0 +1,43 @@
+.SuperCard {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 30px;
+    background-color: #e7f9ff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .task-name {
+    font-size: large;
+    font-weight: 600;
+    margin: 0;
+    padding-bottom: 5px;
+    text-align: center;
+  }
+  .task-assigned_to,
+  .task-status,
+  .task-deadline,
+  .task-description {
+    font-size: 14px;
+    margin: 1rem 0;
+  }
+
+  span{
+    font-weight: 500;
+  }
+
+  hr{
+    margin: 10px 0px;
+  }
+
+  .edit-button{
+    text-align: center;
+    margin: 0 0.5rem;
+    width: min-content;
+    background-color: #379700;
+  }
+  .delete-button{
+    text-align: center;
+    margin: 0 0.5rem;
+    width: min-content;
+    background-color: #F5723D;
+  }
