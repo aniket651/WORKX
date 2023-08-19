@@ -116,7 +116,7 @@ function App() {
         <React.Fragment>
             {isLoggedIn && <PortalNavbar />}
             <Outlet />
-            {isLoggedIn && <PortalFooter />}
+            {/* {isLoggedIn && <PortalFooter />} */}
         </React.Fragment>
     );
 }

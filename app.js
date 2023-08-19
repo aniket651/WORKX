@@ -5,6 +5,7 @@ const indexRoutes = require("./routes/indexRoutes");
 const projectRoutes = require("./routes/projectRoutes.js");
 const authRoutes = require('./routes/authRoutes');
 const taskRoutes = require('./routes/taskRoutes');
+const userRoutes = require('./routes/userRoutes');
 const cors = require('cors');
 
 
@@ -15,5 +16,6 @@ app.use('/',indexRoutes);
 app.use('/auth',authRoutes);
 app.use('/projects',projectRoutes);
 app.use('/tasks',taskRoutes);
+app.use('/user',userRoutes);
 // app.use('')
 module.exports = app;

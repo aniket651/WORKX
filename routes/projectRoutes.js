@@ -23,6 +23,6 @@ router
     .delete(authController.verifyToken, projectController.deleteProject)//deletes the Project along with all its tasks*
 router
     .route('/:projectId/:taskId')
-    .put(authController.verifyToken, taskController.changeTask)//make changes to a particular task of a particular project
+    .patch(authController.verifyToken, taskController.changeTask)//make changes to a particular task of a particular project
     .delete(authController.verifyToken, taskController.deleteTask)//delete a particular task of a particular Project*
 module.exports = router;

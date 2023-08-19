@@ -36,6 +36,10 @@ import Home from './portal/home/Home';
 import MyProjects from './portal/project/MyProjects';
 import MyTasks from './portal/task/MyTasks';
 import CreateProjectForm from './portal/project/CreateProjectForm';
+import ProjectPage from './portal/project/ProjectPage';
+import CreateTaskForm from './portal/project/CreateTaskForm';
+import EditTaskForm from './portal/project/EditTaskForm';
+import EditProjectForm from './portal/project/EditProjectForm';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -67,7 +71,26 @@ root.render(
               <CreateProjectForm />
             </ProtectedRoute>
           } />
-          
+          <Route path='projects/:projectId' element={
+            <ProtectedRoute>
+              <ProjectPage />
+            </ProtectedRoute>
+          } />
+          <Route path='createTask/:projectId' element={
+            <ProtectedRoute>
+              <CreateTaskForm />
+            </ProtectedRoute>
+          } />
+          <Route path='/EditTask/:projectId/:taskId' element={
+            <ProtectedRoute>
+              <EditTaskForm />
+            </ProtectedRoute>
+          } />
+          <Route path='/editProject/:projectId' element={
+            <ProtectedRoute>
+              <EditProjectForm />
+            </ProtectedRoute>
+          } />
         </Route>
       </Routes>
     </BrowserRouter>

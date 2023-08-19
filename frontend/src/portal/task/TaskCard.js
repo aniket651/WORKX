@@ -83,13 +83,14 @@ const TaskCard = (props) => {
 
     return (
         <div className="task-card">
-            <h3 className="task-name">{props.compArray.filter((item) => item._id === props.taskId)[0].name}</h3>
-            <p className="task-description">{props.compArray.filter((item) => item._id === props.taskId)[0].description}</p>
-            <p className="task-deadline">Deadline: {props.compArray.filter((item) => item._id === props.taskId)[0].deadline}</p>
-            <p className="task-project">Project: {props.compArray.filter((item) => item._id === props.taskId)[0].project}</p>
-            {props.compArray.filter((item) => item._id === props.taskId)[0].status === "pending" ? <input type='submit' onClick={changePendingStatus} id='pendingbutton' value='move to In-Progress' aria-label='click here to login' /> : null}
-            {props.compArray.filter((item) => item._id === props.taskId)[0].status === "in-progress" ? <input type='submit' onClick={changeProgressStatus} id='progressbutton' value='move to completed' aria-label='click here to login' /> : null}
-            {props.compArray.filter((item) => item._id === props.taskId)[0].status === "completed" ? <input type='submit' onClick={changeCompletedStatus} id='completedbutton' value='move to In-Progress' aria-label='click here to login' /> : null}
+            <div className="task-name">{props.compArray.filter((item) => item._id === props.taskId)[0].name}</div>
+            <div className="task-project"><span>Project Id: </span>{props.compArray.filter((item) => item._id === props.taskId)[0].project}</div>
+            <hr></hr>
+            <p className="task-description"><span>Description: </span>{props.compArray.filter((item) => item._id === props.taskId)[0].description}</p>
+            <p className="task-deadline"><span>Deadline: </span>{props.compArray.filter((item) => item._id === props.taskId)[0].deadline}</p>
+            {props.compArray.filter((item) => item._id === props.taskId)[0].status === "pending" ? <input className="change-button" type='submit' onClick={changePendingStatus} id='pendingbutton' value='move to In-Progress' aria-label='click here to login' /> : null}
+            {props.compArray.filter((item) => item._id === props.taskId)[0].status === "in-progress" ? <input className="change-button" type='submit' onClick={changeProgressStatus} id='progressbutton' value='move to completed' aria-label='click here to login' /> : null}
+            {props.compArray.filter((item) => item._id === props.taskId)[0].status === "completed" ? <input className="change-button" type='submit' onClick={changeCompletedStatus} id='completedbutton' value='move to In-Progress' aria-label='click here to login' /> : null}
 
         </div>
     );

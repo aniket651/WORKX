@@ -115,6 +115,12 @@ exports.changeTask = async(req,res)=>{
         let newDescription = req.body.description;
         let newDeadline = req.body.deadline;
         let newAssigned_to = req.body.assigned_to;
+        const assignedUser = await User.findById(newAssigned_to);
+        if(!assignedUser){
+            console.log("assigned user is invalid");
+            connect.disconnect();
+            res.status(400).send("assigned user is invalid !!");
+        }
         
         const newTask = await Task.findByIdAndUpdate(req.params.taskId,{
             name: newName,

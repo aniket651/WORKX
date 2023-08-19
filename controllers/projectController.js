@@ -53,7 +53,7 @@ exports.createProject = async(req,res)=>{
 }
 
 
-exports.getProject = async(req,res)=>{
+exports.getProject = async(req,res)=>{//left to check if user is owner of that project or not
     try {
         const DB = process.env.DATABASE.replace('<password>',process.env.DATABASE_PASSWORD);
         const connect = await mongoose.connect(DB);

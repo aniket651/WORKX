@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
+import ReactLoading from "react-loading";
 
 import api from '../../api';
 import './MyTasks.css'
@@ -8,6 +9,7 @@ import TaskCard from './TaskCard';
 
 const MyTasks = (props) => {
   const [compArray,setCompArray] = useState([]);
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
   
@@ -18,6 +20,7 @@ const MyTasks = (props) => {
       try {
   
         const res = await api.get("/tasks")
+        setLoading(false);
         console.log(res.data);
         if(res.status === 200){
             console.log("status:200, setting fetched Task list to compArray");
@@ -59,26 +62,30 @@ const MyTasks = (props) => {
   const completedTasks = compArray.filter((item) => item.status === 'completed');
   
   return (
-    <div className='Task-List grid-container'>
-      <div className='Pending-List category'>
-        <h2>Pending Tasks</h2>
-        {pendingTasks.map((item, index) => (
-          <TaskCard key={index} taskId={item._id} compArray={compArray} changeCompArray={changeCompArray}/>
-        ))}
+    loading===false ? 
+    (
+      <div className='Task-List grid-container'>
+        <div className='Pending-List category'>
+          <div className='task-category'>Pending Tasks</div>
+          {pendingTasks.map((item, index) => (
+            <TaskCard key={index} taskId={item._id} compArray={compArray} changeCompArray={changeCompArray}/>
+          ))}
+        </div>
+        <div className='Progress-List category'>
+          <div className='task-category'>In Progress Tasks</div>
+          {inProgressTasks.map((item, index) => (
+            <TaskCard key={index} taskId={item._id} compArray={compArray} changeCompArray={changeCompArray} />
+          ))}
+        </div>
+        <div className='Completed-List category'>
+          <div className='task-category'>Completed Tasks</div>
+          {completedTasks.map((item, index) => (
+            <TaskCard key={index} taskId={item._id} compArray={compArray} changeCompArray={changeCompArray} />
+          ))}
+        </div>
       </div>
-      <div className='Progress-List category'>
-        <h2>In Progress Tasks</h2>
-        {inProgressTasks.map((item, index) => (
-          <TaskCard key={index} taskId={item._id} compArray={compArray} changeCompArray={changeCompArray} />
-        ))}
-      </div>
-      <div className='Completed-List category'>
-        <h2>Completed Tasks</h2>
-        {completedTasks.map((item, index) => (
-          <TaskCard key={index} taskId={item._id} compArray={compArray} changeCompArray={changeCompArray} />
-        ))}
-      </div>
-    </div>
+    ) : (<ReactLoading type="bars" color="#0000FF"
+    height={100} width={50} />)
   )
 }
 

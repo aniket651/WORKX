@@ -1,23 +1,42 @@
 .task-card {
     border: 1px solid #ccc;
-    padding: 10px;
-    border-radius: 5px;
-    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 30px;
+    background-color: #e7f9ff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
   .task-name {
-    font-size: 18px;
-    font-weight: bold;
+    font-size: large;
+    font-weight: 400;
     margin: 0;
+    padding-bottom: 5px;
+    text-align: center;
   }
-  
+  .task-deadline,
   .task-description {
     font-size: 14px;
+    margin: 3px 0;
   }
   
-  .task-deadline,
   .task-project {
-    font-size: 12px;
-    margin: 5px 0;
+    font-size: 14px;
+    /* margin: 5px 0; */
+    padding-top: 10px;
+    text-align: center;
+  }
+
+  span{
+    font-weight: 500;
+  }
+
+  hr{
+    margin: 10px 0px;
+  }
+
+  .change-button{
+    text-align: center;
+    width: 100%;
+    border-radius: 30px;
+    background-color: aquamarine;
   }
