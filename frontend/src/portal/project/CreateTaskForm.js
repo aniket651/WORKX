@@ -3,6 +3,8 @@ import React, { useState } from 'react'
 import api from '../../api';
 import { useParams } from 'react-router-dom';
 
+import "./CreateTaskForm.css"
+
 const CreateTaskForm = () => {
     const { projectId } = useParams();
     const [name,setName] = useState("");
@@ -38,27 +40,32 @@ const CreateTaskForm = () => {
 
   return (
     <>
-    <div className='Form-div'>
-        <form onSubmit={handleSubmit}>
-            <label htmlFor='task-name'>name of task: </label>
-            <input id='task-name' required onChange={(e) => setName(e.target.value)} />
-            <br /> 
-            <label htmlFor='task-description'>description of task: </label>
-            <input id='task-description' required onChange={(e) => setDescription(e.target.value)} />
-            <br /> 
-            <label htmlFor='task-deadline'>deadline of task: </label>
-            <input id='task-deadline' type='date' required onChange={(e) => setDeadline(e.target.value)}/>
-            <br /> 
-            <label htmlFor='task-assigned_to'>Assign task to: </label>
-            <input id='task-assigned_to' required onChange={(e) => setUserName(e.target.value)} />
-            <br /> 
-            {/* <label htmlFor='task-deadline'>deadline of task: </label>
-            <input id='task-deadline' type='date' required onChange={(e) => setDeadline(e.target.value)}/>
-            <br />  */}
-            
-            <button type='submit'> Create Task </button>
-        </form>
-    </div>
+        <div className='form-heading'>
+            Create Task Form
+        </div>
+        <div className='grid-body'>
+            <div className='form-div'>
+                <form onSubmit={handleSubmit}>
+                    <label htmlFor='task-name'>name of task: </label>
+                    <input id='task-name' required onChange={(e) => setName(e.target.value)} />
+                    <br /> 
+                    <label htmlFor='task-description'>description of task: </label>
+                    <input id='task-description' required onChange={(e) => setDescription(e.target.value)} />
+                    <br /> 
+                    <label htmlFor='task-deadline'>deadline of task: </label>
+                    <input id='task-deadline' type='date' required onChange={(e) => setDeadline(e.target.value)}/>
+                    <br /> 
+                    <label htmlFor='task-assigned_to'>Assign task to: </label>
+                    <input id='task-assigned_to' required onChange={(e) => setUserName(e.target.value)} />
+                    <br /> 
+                    {/* <label htmlFor='task-deadline'>deadline of task: </label>
+                    <input id='task-deadline' type='date' required onChange={(e) => setDeadline(e.target.value)}/>
+                    <br />  */}
+                    
+                    <button type='submit'> Create Task </button>
+                </form>
+            </div>
+        </div>
     </>
   )
 }

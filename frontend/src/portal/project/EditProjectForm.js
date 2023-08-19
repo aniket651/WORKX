@@ -3,6 +3,8 @@ import React, { useState } from 'react'
 import api from '../../api';
 import { useParams } from 'react-router-dom';
 
+import "./EditProjectForm.css"
+
 const EditProjectForm = () => {
     const { projectId } = useParams();
     const [name,setName] = useState("");
@@ -47,24 +49,29 @@ const EditProjectForm = () => {
 
   return (
     <>
-    <div className='Form-div'>
-        <form onSubmit={handleSubmit}>
-            <label htmlFor='project-name'>name of project: </label>
-            <input id='project-name' onChange={(e) => setName(e.target.value)} />
-            <br /> 
-            <label htmlFor='project-aim'>aim of project: </label>
-            <input id='project-aim' onChange={(e) => setAim(e.target.value)} />
-            <br /> 
-            <label htmlFor='project-deadline'>deadline of project: </label>
-            <input id='project-deadline' type='date' value={localStorage.getItem("project-deadline")} onChange={(e) => setDeadline(e.target.value)}/>
-            <br /> 
-            {/* <label htmlFor='project-deadline'>deadline of project: </label>
-            <input id='project-deadline' type='date' required onChange={(e) => setDeadline(e.target.value)}/>
-            <br />  */}
-            
-            <button type='submit'> Edit Project </button>
-        </form>
-    </div>
+        <div className='form-heading'>
+            Edit Project Form
+        </div>
+        <div className='grid-body'>
+            <div className='form-div'>
+                <form onSubmit={handleSubmit}>
+                    <label htmlFor='project-name'>name of project: </label>
+                    <input id='project-name' onChange={(e) => setName(e.target.value)} />
+                    <br /> 
+                    <label htmlFor='project-aim'>aim of project: </label>
+                    <input id='project-aim' onChange={(e) => setAim(e.target.value)} />
+                    <br /> 
+                    <label htmlFor='project-deadline'>deadline of project: </label>
+                    <input id='project-deadline' type='date' value={localStorage.getItem("project-deadline")} onChange={(e) => setDeadline(e.target.value)}/>
+                    <br /> 
+                    {/* <label htmlFor='project-deadline'>deadline of project: </label>
+                    <input id='project-deadline' type='date' required onChange={(e) => setDeadline(e.target.value)}/>
+                    <br />  */}
+                    
+                    <button type='submit'> Edit Project </button>
+                </form>
+            </div>
+        </div>
     </>
   )
 }
