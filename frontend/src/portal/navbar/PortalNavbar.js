@@ -46,7 +46,7 @@ const Navbar = (props) => {
         {/* <i class="fas fa-bars"></i>some change req here */}
       </label>
       <ul>
-      <li><a onClick={handleDashboardClick}>Dashboard </a></li>
+      {/* <li><a onClick={handleDashboardClick}>Dashboard </a></li> */}
         <li><a onClick={handleMyProjectsClick}>My Projects </a></li>
         <li><a onClick={handleMyTasksClick}>My Tasks </a></li>
         <li><a onClick={handleLogoutClick}>Logout </a></li>
