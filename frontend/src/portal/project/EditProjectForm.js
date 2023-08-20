@@ -63,7 +63,7 @@ const EditProjectForm = () => {
                     <input id='project-aim' onChange={(e) => setAim(e.target.value)} />
                     <br /> 
                     <label htmlFor='project-deadline'>deadline of project: </label>
-                    <input id='project-deadline' type='date' value={localStorage.getItem("project-deadline")} onChange={(e) => setDeadline(e.target.value)}/>
+                    <input id='project-deadline' type='date' onChange={(e) => setDeadline(e.target.value)}/>
                     <br /> 
                     {/* <label htmlFor='project-deadline'>deadline of project: </label>
                     <input id='project-deadline' type='date' required onChange={(e) => setDeadline(e.target.value)}/>

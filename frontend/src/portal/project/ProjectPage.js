@@ -72,7 +72,7 @@ const ProjectPage = (props) => {
   const handleEditProject = (e) => {
     localStorage.setItem('project-name', projectDetails.name);
     localStorage.setItem('project-deadline', projectDetails.deadline.substring(0, 10));
-    localStorage.setItem('project-description', projectDetails.description);
+    localStorage.setItem('project-aim', projectDetails.aim);
     // localStorage.setItem('task-name', props.task.name);
 
     navigate(`/editProject/${projectId}`);

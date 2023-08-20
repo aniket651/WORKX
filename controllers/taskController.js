@@ -110,6 +110,7 @@ exports.changeTask = async(req,res)=>{
         if(project.owner != uId){
             connect.disconnect();
             res.status(403).send('Access Not Granted to this Project !!!')
+            return;
         }
         let newName = req.body.name;
         let newDescription = req.body.description;
@@ -120,6 +121,7 @@ exports.changeTask = async(req,res)=>{
             console.log("assigned user is invalid");
             connect.disconnect();
             res.status(400).send("assigned user is invalid !!");
+            return;
         }
         
         const newTask = await Task.findByIdAndUpdate(req.params.taskId,{

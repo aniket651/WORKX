@@ -36,7 +36,7 @@ const Login = () => {
     return (
         <React.Fragment>
             <Container className="my-5">
-                <h2 className="fw-normal mb-5">Login To React Auth Demo</h2>
+                <h2 className="fw-normal mb-5">Login To WORKX</h2>
                 <Row>
                     <Col md={{ span: 6 }}>
                         <Form id="loginForm" onSubmit={submitLoginForm}>
