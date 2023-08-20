@@ -46,16 +46,15 @@ root.render(
   <React.StrictMode>
     <BrowserRouter basename={'/'}>
       <Routes>
+        <Route path='' element={
+          <Home />
+        } />
         <Route path='/auth' element={<Auth />}>
           <Route path='login' element={<Login />} />
           <Route path='register' element={<Register />} />
         </Route>
         <Route path="/" element={<App />}>
-          <Route path='' element={
-            <ProtectedRoute>
-              <Home />
-            </ProtectedRoute>
-          } />
+          
           <Route path='projects' element={
             <ProtectedRoute>
               <MyProjects />

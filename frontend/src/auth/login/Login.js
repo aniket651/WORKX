@@ -25,7 +25,7 @@ const Login = () => {
             localStorage.clear();
             localStorage.setItem('user-token', token);
             setTimeout(() => {
-                navigate('/');
+                navigate('/projects');
             }, 500);
         }).catch((error) => {
             btnPointer.innerHTML = 'Login';
