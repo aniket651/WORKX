@@ -19,7 +19,7 @@ const Navbar = (props) => {
   }
   const handleRegisterClick = () => {
     localStorage.clear();
-    navigate('/auth/login');
+    navigate('/auth/register');
   }
 
   const handleDashboardClick = () => {
