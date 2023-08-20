@@ -25,6 +25,7 @@ const TaskCard = (props) => {
             }
             
         } catch (error) {
+            alert(error);
             console.log(error);
         }
     }
@@ -51,6 +52,7 @@ const TaskCard = (props) => {
             }
             
         } catch (error) {
+            alert(error);
             console.log(error);
         }
     }
@@ -75,6 +77,7 @@ const TaskCard = (props) => {
             }
             
         } catch (error) {
+            alert(error);
             console.log(error);
         }
     }

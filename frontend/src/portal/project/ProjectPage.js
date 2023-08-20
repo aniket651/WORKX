@@ -8,6 +8,7 @@ import "./ProjectPage.css"
 
 
 const ProjectPage = (props) => {
+  const [showConfirm, setShowConfirm] = useState(false);
   const { projectId } = useParams();
   const [projectDetails, setProjectDetails] = useState({});
   const [taskList, setTaskList] = useState([]);
@@ -20,14 +21,6 @@ const ProjectPage = (props) => {
     fetchProject();
     console.log("fetched data for the Project!! ")
   }, [])
-
-
-  // let componentList = [];
-  // useEffect(() => {
-  //   componentList = compArray.map((item, index) => (
-  //     <ProjectCard key={index} name={item.name} aim={item.aim} deadline={item.deadline}/>
-  //   ));
-  // }, [compArray])
 
 
   const fetchProject = async () => {
@@ -43,6 +36,7 @@ const ProjectPage = (props) => {
       }
 
     } catch (error) {
+      alert(error);
       console.log(error);
     }
   }
@@ -56,12 +50,23 @@ const ProjectPage = (props) => {
 
       const response = await api.delete(`/projects/${projectId}`);
       console.log(response.data);
+      setShowConfirm(false);
       if (response.status === 200) {
         alert("the Project is deleted !! refresh to see changes")
       }
     } catch (error) {
+      setShowConfirm(false);
+      alert(error);
       console.log(error);
     }
+  }
+
+  const handleCancelDelete = (e) => {
+    setShowConfirm(false);
+  }
+
+  const handleDeleteClick = (e) => {
+    setShowConfirm(true);
   }
 
   const handleEditProject = (e) => {
@@ -89,7 +94,14 @@ const ProjectPage = (props) => {
         <div className='button-div'>
           <button className='createTaskButton' onClick={handleCreateTask}>Create New Task</button>
           <button className='EditProjectButton' onClick={handleEditProject}>Edit Project</button>
-          <button className='DeleteProjectButton' onClick={handleDeleteProject}>Delete Project</button>
+          <button className='DeleteProjectButton' onClick={handleDeleteClick}>Delete Project</button>
+          {showConfirm && (
+            <div className='delete-confirmation'>
+              <p>Are you sure you want to delete?</p>
+              <button onClick={handleDeleteProject}>Yes</button>
+              <button onClick={handleCancelDelete}>No</button>
+            </div>
+          )}
         </div>
 
         <div className='task-grid'>

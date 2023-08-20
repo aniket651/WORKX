@@ -49,6 +49,7 @@ const EditTaskForm = () => {
                 // localStorage.removeItem("task-deadline")
             }
         } catch (error) {
+            alert(error);
             console.log(error);
         }
         

@@ -31,6 +31,7 @@ const CreateTaskForm = () => {
                 alert("the Task is Created!!")
             }
         } catch (error) {
+            alert(error);
             console.log(error);
         }
         

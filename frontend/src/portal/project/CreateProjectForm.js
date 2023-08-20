@@ -23,6 +23,7 @@ const CreateProjectForm = () => {
                 alert("the Project is Created!!")
             }
         } catch (error) {
+            alert(error);
             console.log(error);
         }
 

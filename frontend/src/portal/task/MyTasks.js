@@ -28,6 +28,7 @@ const MyTasks = (props) => {
         }
         
       } catch (error) {
+        alert(error);
         console.log(error);
       }
     }

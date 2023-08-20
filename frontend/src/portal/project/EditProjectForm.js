@@ -40,6 +40,7 @@ const EditProjectForm = () => {
                 // localStorage.removeItem("project-deadline")
             }
         } catch (error) {
+            alert(error);
             console.log(error);
         }
         

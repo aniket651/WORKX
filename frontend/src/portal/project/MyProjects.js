@@ -40,6 +40,7 @@ const MyProjects = (props) => {
       }
 
     } catch (error) {
+      alert(error);
       console.log(error);
     }
   }
