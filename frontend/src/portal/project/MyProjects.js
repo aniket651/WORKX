@@ -54,7 +54,7 @@ const MyProjects = (props) => {
     <div className='myprojects'>
       <div className='project-bar'>
         <span className='page-heading'>My Projects</span>
-        <button onClick={handleCreateProject}>Create Project</button> 
+        <button className="create-project-button" onClick={handleCreateProject}>Create Project</button> 
       </div>
       {
         loading===false ? (

@@ -27,3 +27,28 @@
       grid-template-columns: 1fr;
     }
   }
+
+  @media (max-width: 769px){
+    .grid-container{
+        padding: 0rem 3rem;
+    }
+    /* .project-aim-div{
+        padding: 2rem 2rem;
+    }
+    .task-grid{
+        padding: 2rem 2rem;
+    } */
+}
+
+
+@media (max-width: 481px){
+    .grid-container{
+        padding: 0rem 0rem;
+    }
+    /* .project-aim-div{
+        padding: 2rem 2rem;
+    }
+    .task-grid{
+        padding: 2rem 1rem;
+    } */
+}

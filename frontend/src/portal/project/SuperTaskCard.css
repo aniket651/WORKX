@@ -28,6 +28,17 @@
   hr{
     margin: 10px 0px;
   }
+  .SuperCard button{
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 30px;
+    width:max-content;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+  }
 
   .edit-button{
     text-align: center;
@@ -40,4 +51,11 @@
     margin: 0 0.5rem;
     width: min-content;
     background-color: #F5723D;
+  }
+
+  .edit-button:hover{
+    background-color: #2d7a00;
+  }
+  .delete-button:hover{
+    background-color: #f05c22;
   }

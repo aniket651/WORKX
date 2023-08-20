@@ -25,7 +25,21 @@
     padding: 2rem 5rem;
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
+
 }
+.button-div button{
+    margin-bottom: 2rem;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 30px;
+    width:max-content;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+  }
 
 .createTaskButton{
     background-color: #F5723D;
@@ -40,13 +54,13 @@
 }
 
 .createTaskButton:hover {
-    background-color: #ff8c5f;
+    background-color: #f05c22;
 }
 .EditProjectButton:hover{
-    background-color: #4356ff;
+    background-color: rgb(29, 47, 206);
 }
 .DeleteProjectButton:hover{
-    background-color: #4ac900;
+    background-color: #2d7a00;
 }
 
 .task-grid{
@@ -57,4 +71,37 @@
     padding-left: 6.25rem;
     padding-right: 6.25rem;
     padding-top: 2rem;
+
+    /* display: grid; */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* gap: 20px; */
+    /* padding: 20px; */
+    /* padding-top: 40px; */
 }
+
+
+@media (max-width: 769px){
+    .project-page{
+        padding: 0rem 3rem;
+    }
+    .project-aim-div{
+        padding: 2rem 2rem;
+    }
+    .task-grid{
+        padding: 2rem 2rem;
+    }
+}
+
+
+@media (max-width: 481px){
+    .project-page{
+        padding: 0rem 0rem;
+    }
+    .project-aim-div{
+        padding: 2rem 2rem;
+    }
+    .task-grid{
+        padding: 2rem 1rem;
+    }
+}
+

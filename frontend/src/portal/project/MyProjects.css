@@ -25,9 +25,8 @@
     padding: 20px;
     padding-top: 40px;
   }
-  
-  /* Styles for the "Create Project" button */
-  button {
+
+  .create-project-button{
     background-color: #007bff;
     color: white;
     border: none;
@@ -35,11 +34,12 @@
     font-size: 16px;
     cursor: pointer;
     border-radius: 5px;
+    width:fit-content;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease;
   }
   
-  button:hover {
+  .create-project-button:hover {
     background-color: #0056b3;
   }
   
@@ -72,3 +72,29 @@
     color: #ff5722;
   }
   
+
+
+  @media (max-width: 769px){
+    .myprojects{
+        padding: 0rem 3rem;
+    }
+    /* .project-aim-div{
+        padding: 2rem 2rem;
+    }
+    .task-grid{
+        padding: 2rem 2rem;
+    } */
+}
+
+
+@media (max-width: 481px){
+    .myprojects{
+        padding: 0rem 0rem;
+    }
+    /* .project-aim-div{
+        padding: 2rem 2rem;
+    }
+    .task-grid{
+        padding: 2rem 1rem;
+    } */
+}
