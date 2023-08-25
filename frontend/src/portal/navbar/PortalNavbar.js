@@ -6,12 +6,6 @@ import './PortalNavbar.css'
 
 const Navbar = (props) => {
   const navigate = useNavigate();
-  // useEffect(() => {
-  //   if (!props.loggedIn) {
-  //     navigate('/login');
-  //     // navigate(-1);
-  //   }
-  // }, [props.loggedIn, navigate]);
 
   const handleLogoutClick = () => {
     localStorage.clear();

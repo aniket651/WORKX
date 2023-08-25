@@ -23,14 +23,14 @@ const SuperTaskCard = (props) => {
         try {
 
             const response = await api.delete(`/projects/${props.projectId}/${props.task._id}`);
-            console.log(response.data);
+            // console.log(response.data);
             setShowConfirm(false);
             if (response.status === 200) {
                 alert("the task is deleted !! refresh to see changes")
             }
         } catch (error) {
             alert(error);
-            console.log(error);
+            // console.log(error);
             setShowConfirm(false);
         }
     }

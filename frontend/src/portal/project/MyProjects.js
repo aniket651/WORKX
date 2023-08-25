@@ -14,18 +14,11 @@ const MyProjects = (props) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log("fetching data for ProjectList!! ")
+    // console.log("fetching data for ProjectList!! ")
     fetchData();
-    console.log("fetched data for ProjectList!! ")
+    // console.log("fetched data for ProjectList!! ")
   }, [])
 
-
-  // let componentList = [];
-  // useEffect(() => {
-  //   componentList = compArray.map((item, index) => (
-  //     <ProjectCard key={index} name={item.name} aim={item.aim} deadline={item.deadline}/>
-  //   ));
-  // }, [compArray])
 
 
   const fetchData = async () => {
@@ -33,15 +26,15 @@ const MyProjects = (props) => {
 
       const res = await api.get("/projects")
       setLoading(false);
-      console.log(res.data);
+      // console.log(res.data);
       if (res.status === 200) {
-        console.log(res.status);
+        // console.log(res.status);
         setCompArray(res.data);
       }
 
     } catch (error) {
       alert(error);
-      console.log(error);
+      // console.log(error);
     }
   }
 

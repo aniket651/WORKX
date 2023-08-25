@@ -20,7 +20,7 @@ const Register = () => {
                 "password": password
             })
             if (res.status === 201) {
-                console.log(res.data);
+                // console.log(res.data);
                 alert("Your Profile is Created!!")
                 setTimeout(() => {
                   navigate('/auth/login');
@@ -38,7 +38,7 @@ const Register = () => {
     return (
         <>
             <div className='form-heading'>
-                Edit Project Form
+                Registration Form
             </div>
             <div className='grid-body'>
                 <div className='form-div'>

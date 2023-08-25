@@ -15,43 +15,29 @@ const MyTasks = (props) => {
   
 
   useEffect(()=>{
-    console.log("fetching data for TaskList !! ")
+    // console.log("fetching data for TaskList !! ")
     const fetchData =async()=>{
       try {
   
         const res = await api.get("/tasks")
         setLoading(false);
-        console.log(res.data);
+        // console.log(res.data);
         if(res.status === 200){
-            console.log("status:200, setting fetched Task list to compArray");
+            // console.log("status:200, setting fetched Task list to compArray");
             setCompArray(res.data);
         }
         
       } catch (error) {
         alert(error);
-        console.log(error);
+        // console.log(error);
       }
     }
     fetchData();
-    console.log("fetched data for TaskList !! "+compArray)
+    // console.log("fetched data for TaskList !! "+compArray)
 
   }, [])
 
 
-  // const fetchData = async()=>{
-  //   try {
-
-  //     const res = await api.get("/tasks")
-  //     console.log(res.data);
-  //     if(res.status === 200){
-  //         console.log("status:200, setting fetched Task list to compArray");
-  //         setCompArray(res.data);
-  //     }
-      
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
 
   const changeCompArray = (newArray)=>{
     setCompArray(newArray);

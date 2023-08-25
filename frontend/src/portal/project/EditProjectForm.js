@@ -32,7 +32,7 @@ const EditProjectForm = () => {
                 "deadline": deadline
             })
             if(res.status === 200){
-                console.log(res.data);
+                // console.log(res.data);
                 alert("the Project is Edited!!")
                 // localStorage.removeItem("project-assigned_to");
                 // localStorage.removeItem("project-aim")
@@ -41,7 +41,7 @@ const EditProjectForm = () => {
             }
         } catch (error) {
             alert(error);
-            console.log(error);
+            // console.log(error);
         }
         
     }

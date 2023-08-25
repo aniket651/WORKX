@@ -33,7 +33,7 @@ const EditTaskForm = () => {
             }
             else{
                 const response = await api.get(`/user/getUserId/${userName}`);
-                console.log(response.data);
+                // console.log(response.data);
                 setAssigned_to(response.data.userId);
             }
             const res = await api.patch(`/projects/${projectId}/${taskId}`, {
@@ -43,7 +43,7 @@ const EditTaskForm = () => {
                 "assigned_to": assigned_to
             })
             if(res.status === 200){
-                console.log(res.data);
+                // console.log(res.data);
                 alert("the Task is Edited!!")
                 // localStorage.removeItem("task-assigned_to");
                 // localStorage.removeItem("task-description")
@@ -52,7 +52,7 @@ const EditTaskForm = () => {
             }
         } catch (error) {
             alert(error);
-            console.log(error);
+            // console.log(error);
         }
         
     }

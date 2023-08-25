@@ -17,9 +17,9 @@ const ProjectPage = (props) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log("fetching data for the Project!! ")
+    // console.log("fetching data for the Project!! ")
     fetchProject();
-    console.log("fetched data for the Project!! ")
+    // console.log("fetched data for the Project!! ")
   }, [])
 
 
@@ -28,16 +28,16 @@ const ProjectPage = (props) => {
 
       const res = await api.get(`/projects/${projectId}`)
       setLoading(false);
-      console.log(res.data);
+      // console.log(res.data);
       if (res.status === 200) {
-        console.log(res.data);
+        // console.log(res.data);
         setProjectDetails(res.data);
         setTaskList(res.data.tasks);
       }
 
     } catch (error) {
       alert(error);
-      console.log(error);
+      // console.log(error);
     }
   }
 
@@ -49,7 +49,7 @@ const ProjectPage = (props) => {
     try {
 
       const response = await api.delete(`/projects/${projectId}`);
-      console.log(response.data);
+      // console.log(response.data);
       setShowConfirm(false);
       if (response.status === 200) {
         alert("the Project is deleted !! refresh to see changes")
@@ -57,7 +57,7 @@ const ProjectPage = (props) => {
     } catch (error) {
       setShowConfirm(false);
       alert(error);
-      console.log(error);
+      // console.log(error);
     }
   }
 

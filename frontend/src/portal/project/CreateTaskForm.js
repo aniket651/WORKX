@@ -18,7 +18,7 @@ const CreateTaskForm = () => {
         try {
 
             const response = await api.get(`/user/getUserId/${userName}`);
-            console.log(response.data);
+            // console.log(response.data);
 
             const res = await api.post(`/projects/${projectId}`, {
                 "name": name,
@@ -27,7 +27,7 @@ const CreateTaskForm = () => {
                 "assigned_to": response.data.userId
             })
             if(res.status === 201){
-                console.log(res.data);
+                // console.log(res.data);
                 alert("the Task is Created!!")
             }
         } catch (error) {

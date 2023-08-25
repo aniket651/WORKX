@@ -7,16 +7,16 @@ const TaskCard = (props) => {
 
     const changePendingStatus = async(e)=>{
         e.preventDefault();
-        console.log(e);
+        // console.log(e);
 
         //send post request to the login endpoint
         try {
             const res = await api.patch("/tasks/"+props.taskId,{
                 "status":"in-progress"
             })
-            console.log(res.data);
+            // console.log(res.data);
             if(res.status === 200){
-                console.log("status:200, inside changePendingStatus, calling changeCompArray");
+                // console.log("status:200, inside changePendingStatus, calling changeCompArray");
                 const newArray = props.compArray;
                 const ind = newArray.findIndex((item)=>item.id===res.data.id);
                 newArray[ind].status = res.data.status;
@@ -26,13 +26,13 @@ const TaskCard = (props) => {
             
         } catch (error) {
             alert(error);
-            console.log(error);
+            // console.log(error);
         }
     }
 
     const changeProgressStatus = async(e)=>{
         e.preventDefault();
-        console.log(e);
+        // console.log(e);
 
         //send post request to the login endpoint
         try {
@@ -41,9 +41,9 @@ const TaskCard = (props) => {
             const res = await api.patch("/tasks/"+props.taskId,{
                 "status":"completed"
             })
-            console.log(res.data);
+            // console.log(res.data);
             if(res.status === 200){
-                console.log("status:200, inside changeProgressStatus, calling changeCompArray");
+                // console.log("status:200, inside changeProgressStatus, calling changeCompArray");
                 const newArray = props.compArray;
                 const ind = newArray.findIndex((item)=>item.id===res.data.id);
                 newArray[ind].status = res.data.status;
@@ -53,22 +53,22 @@ const TaskCard = (props) => {
             
         } catch (error) {
             alert(error);
-            console.log(error);
+            // console.log(error);
         }
     }
 
     const changeCompletedStatus = async(e)=>{
         e.preventDefault();
-        console.log(e);
+        // console.log(e);
 
         //send post request to the login endpoint
         try {
             const res = await api.patch("/tasks/"+props.taskId,{
                 "status":"in-progress"
             })
-            console.log(res.data);
+            // console.log(res.data);
             if(res.status === 200){
-                console.log("status:200, inside changeCompletedStatus, calling changeCompArray");
+                // console.log("status:200, inside changeCompletedStatus, calling changeCompArray");
                 const newArray = props.compArray;
                 const ind = newArray.findIndex((item)=>item.id===res.data.id);
                 newArray[ind].status = res.data.status;
@@ -78,7 +78,7 @@ const TaskCard = (props) => {
             
         } catch (error) {
             alert(error);
-            console.log(error);
+            // console.log(error);
         }
     }
 

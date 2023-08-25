@@ -19,12 +19,12 @@ const CreateProjectForm = () => {
                 "deadline": deadline
             })
             if (res.status === 201) {
-                console.log(res.data);
+                // console.log(res.data);
                 alert("the Project is Created!!")
             }
         } catch (error) {
             alert(error);
-            console.log(error);
+            // console.log(error);
         }
 
     }
