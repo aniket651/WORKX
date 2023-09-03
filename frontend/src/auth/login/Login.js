@@ -1,8 +1,18 @@
 import axios from "axios";
-import React from "react";
-import { Button, Col, Container, Form, FormGroup, FormLabel, Row } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
+// import { Form } from 'react-router-dom'
+import api from '../../api';
+
+import "./Login.css"
+
+
 const Login = () => {
+  const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    // const [deadline, setDeadline] = useState("");
+    // const navigate = useNavigate();
+
     const loginAPI = 'http://localhost:3003/auth/login';
     const navigate = useNavigate();
     const submitLoginForm = (event) => {
@@ -30,30 +40,34 @@ const Login = () => {
         }).catch((error) => {
             btnPointer.innerHTML = 'Login';
             btnPointer.removeAttribute('disabled');
-            alert("Oops! Some error occured.");
+            alert(error);
         });
     }
+
+
+
     return (
-        <React.Fragment>
-            <Container className="my-5">
-                <h2 className="fw-normal mb-5">Login To WORKX</h2>
-                <Row>
-                    <Col md={{ span: 6 }}>
-                        <Form id="loginForm" onSubmit={submitLoginForm}>
-                            <FormGroup className="mb-3">
-                                <FormLabel htmlFor={'login-username'}>Username</FormLabel>
-                                <input type={'text'} className="form-control" id={'login-username'} name="username" required />
-                            </FormGroup>
-                            <FormGroup className="mb-3">
-                                <FormLabel htmlFor={'login-password'}>Password</FormLabel>
-                                <input type={'password'} className="form-control" id={'login-password'} name="password" required />
-                            </FormGroup>
-                            <Button type="submit" className="btn-success mt-2" id="login-btn">Login</Button>
-                        </Form>
-                    </Col>
-                </Row>
-            </Container>
-        </React.Fragment>
-    );
+        <>
+            <div className='form-heading'>
+                Login Form
+            </div>
+            <div className='grid-body'>
+                <div className='form-div'>
+                    <form id="loginForm" onSubmit={submitLoginForm}>
+                        <label htmlFor='username'>Username </label>
+                        <input id='username' name="username" required  />
+                        <br />
+                        <label htmlFor='password'>Password </label>
+                        <input id='password' name="password" required  />
+                        <br />
+                        <button id="login-btn" type='submit'> Login </button>
+                    </form>
+                </div>
+            </div>
+        </>
+    )
 }
-export default Login;
+
+export default Login
+
+

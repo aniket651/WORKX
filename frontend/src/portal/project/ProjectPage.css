@@ -43,7 +43,7 @@
 }
 .button-div button{
     margin-bottom: 2rem;
-    color: white;
+    color: rgb(210, 210, 210);
     border: none;
     padding: 10px 20px;
     font-size: 16px;
@@ -54,7 +54,7 @@
     transition: background-color 0.3s ease;
   }
 
-.createTaskButton{
+/* .createTaskButton{
     background-color: #F5723D;
 }
 
@@ -64,9 +64,13 @@
 
 .DeleteProjectButton{
     background-color: #379700;
+} */
+
+.button-div button{
+    background-color: #682e8b;
 }
 
-.createTaskButton:hover {
+/* .createTaskButton:hover {
     background-color: #f05c22;
 }
 .EditProjectButton:hover{
@@ -74,6 +78,10 @@
 }
 .DeleteProjectButton:hover{
     background-color: #2d7a00;
+} */
+
+.button-div button:hover{
+    background-color: #8539b3;
 }
 
 .task-grid{

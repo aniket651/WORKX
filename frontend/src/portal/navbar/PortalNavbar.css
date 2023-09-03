@@ -9,11 +9,12 @@ nav{
   display: flex;
   height: 80px;
   width: 100%;
-  background: #1b1b1b;
+  background: #121212;
   align-items: center;
   justify-content: space-between;
   padding: 0 100px 0 100px;
   flex-wrap: wrap;
+  /* position: sticky; */
 }
 nav .logo{
   color: #fff;
@@ -95,6 +96,6 @@ input[type="checkbox"]{
   nav ul li a.active,
   nav ul li span:hover , a:hover{
     background: none;
-    color: cyan;
+    color: #8539b3;
   }
 }

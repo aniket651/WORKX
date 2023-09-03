@@ -1,8 +1,8 @@
 .project-card {
-    border: 1px solid #ccc;
+    /* border: 1px solid #ccc; */
     padding: 10px;
     border-radius: 5px;
-    background-color: #f9f9f9;
+    background-color: #1b1b1b;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
@@ -25,12 +25,12 @@
   span{
     font-size: 1rem;
     font-weight: 500;
-
+    color:#8539b3;
   }
 
   .project-card-button{
-    background-color: #007bff;
-    color: white;
+    background-color: #682e8b;
+    color: rgb(210, 210, 210);
     border: none;
     padding: 10px 20px;
     font-size: 16px;
@@ -42,5 +42,5 @@
   }
 
   .project-card-button:hover{
-    background-color: #0056b3;
+    background-color: #8539b3;
   }

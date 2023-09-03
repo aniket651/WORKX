@@ -12,7 +12,8 @@
 
 .page-heading{
   font-size: x-large;
-  font-weight: 700;
+  font-weight: 600;
+  color: #8539b3;
 }
 
 
@@ -27,8 +28,8 @@
   }
 
   .create-project-button{
-    background-color: #007bff;
-    color: white;
+    background-color: #682e8b;
+    color: rgb(210, 210, 210);
     border: none;
     padding: 10px 20px;
     font-size: 16px;
@@ -40,7 +41,7 @@
   }
   
   .create-project-button:hover {
-    background-color: #0056b3;
+    background-color: #8539b3;
   }
   
   /* Styles for the ProjectCard component */

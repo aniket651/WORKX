@@ -12,11 +12,11 @@
 
 
 .SuperCard {
-    border: 1px solid #ccc;
+    /* border: 1px solid #ccc; */
     padding: 20px;
     border-radius: 30px;
-    background-color: #e7f9ff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #1b1b1b;
+    box-shadow: 0 2px 4px rgba(197, 197, 197, 0.097);
   }
   
   .task-name {
@@ -36,13 +36,14 @@
 
   span{
     font-weight: 500;
+    color:#8539b3;
   }
 
   hr{
     margin: 10px 0px;
   }
   .SuperCard button{
-    color: white;
+    /* color: white; */
     border: none;
     padding: 10px 20px;
     font-size: 16px;
@@ -53,7 +54,7 @@
     transition: background-color 0.3s ease;
   }
 
-  .edit-button{
+  /* .edit-button{
     text-align: center;
     margin: 0 0.5rem;
     width: min-content;
@@ -64,11 +65,21 @@
     margin: 0 0.5rem;
     width: min-content;
     background-color: #F5723D;
+  } */
+  .SuperCard button{
+    text-align: center;
+    margin: 0 0.5rem;
+    width: min-content;
+    background-color: #682e8b;
   }
 
-  .edit-button:hover{
+  /* .edit-button:hover{
     background-color: #2d7a00;
   }
   .delete-button:hover{
     background-color: #f05c22;
+  } */
+
+  .SuperCard button:hover{
+    background-color: #8539b3;
   }

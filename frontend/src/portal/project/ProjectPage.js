@@ -83,7 +83,7 @@ const ProjectPage = (props) => {
 
 
   return (
-    loading === true ? (<ReactLoading type="bars" color="#0000FF"
+    loading === true ? (<ReactLoading type="bars" color="#682e8b"
       height={100} width={50} />) : (
 
       <div className='project-page'>

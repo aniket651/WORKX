@@ -57,7 +57,7 @@ const MyProjects = (props) => {
               <ProjectCard className='ProjectCard' key={index} projectId={item._id} name={item.name} aim={item.aim} deadline={item.deadline} />
             ))}
           </div>
-        ) : (<ReactLoading type="bars" color="#0000FF"
+        ) : (<ReactLoading type="bars" color="#682e8b"
         height={100} width={50} />)
       }
     </div>

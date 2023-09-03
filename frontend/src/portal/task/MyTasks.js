@@ -71,7 +71,7 @@ const MyTasks = (props) => {
           ))}
         </div>
       </div>
-    ) : (<ReactLoading type="bars" color="#0000FF"
+    ) : (<ReactLoading type="bars" color="#682e8b"
     height={100} width={50} />)
   )
 }

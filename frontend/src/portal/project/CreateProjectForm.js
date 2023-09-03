@@ -34,7 +34,7 @@ const CreateProjectForm = () => {
     return (
         <>
             <div className='form-heading'>
-                Edit Project Form
+                Create Project Form
             </div>
             <div className='grid-body'>
                 <div className='form-div'>
