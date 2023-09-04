@@ -12,7 +12,7 @@ const taskSchema = new mongoose.Schema({
       unique: true
     },
     description:{
-        type:String,
+        type: String,
         required:[true,'a task must have description']
     },
     status:{
@@ -25,11 +25,11 @@ const taskSchema = new mongoose.Schema({
       required:[true,'deadline is must be it sooner or later']
     },
     assigned_to:{
-        type: mongoose.SchemaTypes.ObjectId,
+        type: String,
         ref : 'User'
     },
     project:{
-        type: mongoose.SchemaTypes.ObjectId,
+        type: String,
         ref : 'Project'
     }
     

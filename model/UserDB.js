@@ -32,13 +32,13 @@ userSchema.set('toJSON',{virtuals:true});
 
 userSchema.virtual('projects', {
     'ref' : 'Project',
-    localField : '_id',
+    localField : 'username',
     foreignField : 'owner'
 })
 
 userSchema.virtual('tasks', {
     'ref' : 'Task',
-    localField : '_id',
+    localField : 'username',
     foreignField : 'assigned_to'
 })
 

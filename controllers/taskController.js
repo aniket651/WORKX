@@ -12,18 +12,18 @@ exports.createTask = async(req,res)=>{
         // console.log(req.params.userId);
         const DB = process.env.DATABASE.replace('<password>',process.env.DATABASE_PASSWORD);
         const connect = await mongoose.connect(DB);
-        const projects = await User.findById(req.params.projectId);
-        // if(!projects){
-            //     connect.disconnect();
-            //     res.status(400).send('no such project found !!')
-            // }
+        const projects = await Project.findById(req.params.projectId);
+        if(!projects){
+                connect.disconnect();
+                res.status(400).send('no such project found !!')
+            }
             
-        const uId = req.user.id;
-        console.log(uId);
+        const username = req.user.username;
+        console.log(username);
         let assigned = req.body.assigned_to;
         console.log(assigned);
         if(assigned===undefined){
-            assigned = uId;
+            assigned = username;
         }
         console.log(assigned);
         const newTask = await Task.create({
@@ -32,7 +32,7 @@ exports.createTask = async(req,res)=>{
             status: "pending",
             deadline: req.body.deadline,
             assigned_to:  assigned,
-            project: req.params.projectId
+            project: projects.name
         })
         connect.disconnect();
         // console.log(projects)
@@ -106,8 +106,8 @@ exports.changeTask = async(req,res)=>{
         //     connect.disconnect();
         //     res.status(400).send('parent project not found !!')
         // }
-        const uId = req.user.id;
-        if(project.owner != uId){
+        const username = req.user.username;
+        if(project.owner != username){
             connect.disconnect();
             res.status(403).send('Access Not Granted to this Project !!!')
             return;
@@ -116,7 +116,7 @@ exports.changeTask = async(req,res)=>{
         let newDescription = req.body.description;
         let newDeadline = req.body.deadline;
         let newAssigned_to = req.body.assigned_to;
-        const assignedUser = await User.findById(newAssigned_to);
+        const assignedUser = await User.findOne({ username: newAssigned_to});
         if(!assignedUser){
             console.log("assigned user is invalid");
             connect.disconnect();
@@ -151,8 +151,8 @@ exports.updateStatus = async(req,res)=>{
         //     connect.disconnect();
         //     res.status(400).send('Task not found !!')
         // }
-        const uId = req.user.id;
-        if(task.assigned_to != uId){
+        const username = req.user.username;
+        if(task.assigned_to != username){
             connect.disconnect();
             res.status(403).send("This Task is not assigned to you !!");
         }
@@ -230,8 +230,8 @@ exports.deleteTask = async(req,res)=>{
         //     connect.disconnect();
         //     res.status(400).send('Project not found !!')
         // }
-        const uId = req.user.id;
-        if(project.owner != uId){
+        const username = req.user.username;
+        if(project.owner != username){
             connect.disconnect();
             res.status(403).send("you dont have access to this whole Project !!");
         }

@@ -12,7 +12,7 @@ const projectSchema = new mongoose.Schema({
       unique: true
     },
     owner:{
-      type: mongoose.SchemaTypes.ObjectId,
+      type: String,
       ref : 'User'
     },
     aim:{
@@ -36,7 +36,7 @@ projectSchema.set('toJSON',{virtuals:true});
 
 projectSchema.virtual('tasks', {
     'ref' : 'Task',
-    localField : '_id',
+    localField : 'name',
     foreignField : 'project'
 })
 

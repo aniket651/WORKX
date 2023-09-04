@@ -25,12 +25,12 @@ const ProjectPage = (props) => {
 
   const fetchProject = async () => {
     try {
-
+      console.log(`project id is : ${projectId}`)
       const res = await api.get(`/projects/${projectId}`)
       setLoading(false);
       // console.log(res.data);
       if (res.status === 200) {
-        // console.log(res.data);
+        console.log(res.data);
         setProjectDetails(res.data);
         setTaskList(res.data.tasks);
       }

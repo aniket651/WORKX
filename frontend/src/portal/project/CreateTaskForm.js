@@ -17,14 +17,14 @@ const CreateTaskForm = () => {
         e.preventDefault();
         try {
 
-            const response = await api.get(`/user/getUserId/${userName}`);
+            // const response = await api.get(`/user/getUserId/${userName}`);
             // console.log(response.data);
 
             const res = await api.post(`/projects/${projectId}`, {
                 "name": name,
                 "description": description,
                 "deadline": deadline,
-                "assigned_to": response.data.userId
+                "assigned_to": userName
             })
             if(res.status === 201){
                 // console.log(res.data);

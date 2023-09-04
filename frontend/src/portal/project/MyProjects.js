@@ -33,6 +33,7 @@ const MyProjects = (props) => {
       }
 
     } catch (error) {
+      setLoading(false);
       alert(error);
       // console.log(error);
     }
